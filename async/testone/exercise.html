@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p></p>
+    <script>
+        function wait(ms) {
+            const promise = new Promise((resolve, reject)=> {
+                setTimeout(()=> {
+                    reject(`timeout for ${ms} ms`);
+                }, ms);
+            });
+            return promise;
+        }
+        async function start() {
+            try {
+                const foo = await wait(2000);
+                console.log(foo);
+            } catch (err) {
+                console.log(`ERROR: ${err}`)
+            }
+        }
+        start()
+        
+
+
+
+    </script>
+</body>
+</html>
