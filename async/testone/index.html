@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    function getData() {
+        const promise = new Promise((resolve, reject)=> {
+            // reject('something went wrong');
+            resolve('every thing is allright')
+        });
+        return promise;
+    }
+
+    function onSuccess(result) {
+        console.log(`SUCCESS ${result}`);
+    }
+    function onError(err) {
+        console.log(`ERROR: ${err}`)
+    }
+
+
+    async function start() {
+        try {
+            const result = await getData();
+            onSuccess(result)
+        }
+        catch (err) {
+            onError(err)
+        }
+    }
+    start();
+</script>
+
+</body>
+</html>
